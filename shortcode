@@ -1,0 +1,12 @@
+function show_file_func( $atts ) {
+  extract( shortcode_atts( array(
+    'file' => ''
+  ), $atts ) );
+ 
+  if ($file!='')
+    return @file_get_contents($file);
+}
+ 
+add_shortcode( 'show_file', 'show_file_func' );
+
+[show_file file="URL_TO_FILE"]
